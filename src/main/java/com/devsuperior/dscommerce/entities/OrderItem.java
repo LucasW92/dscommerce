@@ -28,7 +28,8 @@ public class OrderItem {
 
     @Override
     public boolean equals(Object o) {
-        if (o == null || getClass() != o.getClass()) return false;
+        if (o == null || getClass() != o.getClass())
+            return false;
 
         OrderItem orderItem = (OrderItem) o;
         return Objects.equals(id, orderItem.id);

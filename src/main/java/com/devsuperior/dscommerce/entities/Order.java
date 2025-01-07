@@ -7,7 +7,6 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Objects;
 import java.util.Set;
-import java.util.stream.Collectors;
 
 @Entity
 @Table(name = "tb_order")
@@ -30,7 +29,8 @@ public class Order {
     @OneToMany(mappedBy = "id.order", cascade = CascadeType.ALL)
     private Set<OrderItem> items = new HashSet<>();
 
-    public Order() {}
+    public Order() {
+    }
 
     public Order(Long id, Instant moment, OrderStatus status, User client, Payment payment) {
         this.id = id;
@@ -42,7 +42,8 @@ public class Order {
 
     @Override
     public boolean equals(Object o) {
-        if (o == null || getClass() != o.getClass()) return false;
+        if (o == null || getClass() != o.getClass())
+            return false;
 
         Order order = (Order) o;
         return Objects.equals(id, order.id);
